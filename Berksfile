@@ -7,3 +7,4 @@ cookbook 'kagent', github: 'karamelchef/kagent-chef', branch: 'master'
 metadata
 cookbook 'kafka', github: 'mthssdrbrg/kafka-cookbook', branch: 'master'
 cookbook 'java'
+
