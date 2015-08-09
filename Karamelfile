@@ -1,4 +1,8 @@
 dependencies:
   - recipe: kkafka::install
-
+  - recipe: kkafka::default
+    local:
+      - kkafka::install
+    global:
+      - kzookeeper::default
 
