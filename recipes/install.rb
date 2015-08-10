@@ -52,3 +52,5 @@ end
 # Configuration Files
 
 
+include_recipe 'kafka::_defaults'
+include_recipe 'kafka::install'
