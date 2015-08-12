@@ -11,3 +11,6 @@ cookbook 'zookeeper', github: 'SimpleFinance/chef-zookeeper', branch: 'master'
 
 cookbook 'java'
 
+group :testing do
+  cookbook 'apt'
+end
