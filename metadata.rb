@@ -8,7 +8,6 @@ version          "0.1"
 recipe            "kkafka::install", "Experiment setup for kkafka"
 recipe            "kkafka::default", "configFile=; Run experiment for Kafka"
 
-depends "kagent"
 depends "kafka"
 depends "kkafka"
 depends "zookeeper"
