@@ -1,5 +1,8 @@
 include_attribute "kafka"
 
+default[:kafka][:user] = "kafka"
+default[:kafka][:group] = "kafka"
+
 default[:kkafka][:url] = ""
 default[:kkafka][:version] = "0.1"
 

@@ -7,8 +7,7 @@ cookbook 'kagent', github: 'karamelchef/kagent-chef', branch: 'master'
 metadata
 cookbook 'kafka', github: 'mthssdrbrg/kafka-cookbook', branch: 'master'
 cookbook 'kzookeeper', github: 'hopshadoop/kzookeeper', branch: 'master'
-cookbook 'zookeeper', github: 'SimpleFinance/chef-zookeeper', branch: 'master'
-cookbook 'magic', '~> 1.1.12'
+cookbook 'zookeeper', github: 'biobankcloud/chef-zookeeper', branch: 'master'
 
 cookbook 'java'
 
