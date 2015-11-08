@@ -1,4 +1,4 @@
-include_recipe '_id'
+include_recipe 'kkafka::_id'
 
 node.default['java']['jdk_version'] = 7
 include_recipe "java"

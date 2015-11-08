@@ -17,15 +17,7 @@ depends "kzookeeper"
   supports os
 end
 
-attribute "kkafka/version",
-:description => "Version of kkafka",
-:type => 'string',
-:default => "0.1"
-
-
-attribute "kkafka/user",
-:description => "Run kkafka as this user",
-:type => 'string',
-:default => "kkafka"
-
+attribute "kafka/ulimit",
+:description => "ULimit for the max number of open files allowed",
+:type => 'string'
 
