@@ -9,6 +9,7 @@ recipe            "kkafka::install", "Experiment setup for kkafka"
 recipe            "kkafka::default", "configFile=; Run experiment for Kafka"
 recipe            "kkafka::kafkat", "Helper tool for managing kafka"
 
+depends "kagent"
 depends "kafka"
 depends "zookeeper"
 depends "kzookeeper"

@@ -21,6 +21,7 @@ platforms:
 suites: 
   - name: default
     run_list:
+      - recipe[kagent::install]
       - recipe[kzookeeper::install]
       - recipe[kkafka::install]
       - recipe[kzookeeper::default]
