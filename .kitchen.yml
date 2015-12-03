@@ -6,9 +6,16 @@ driver:
     ioapic: 'on'
     natdnshostresolver1: "on"
     natdnsproxy1: "on"
+  network:
+  - ["forwarded_port", {guest: 8080, host: 9191}]
+  - ["forwarded_port", {guest: 8888, host: 8888}]
+  - ["forwarded_port", {guest: 8088, host: 8088}]
+  - ["forwarded_port", {guest: 8089, host: 8089}]
 
 provisioner:
   name: chef_solo
+  require_chef_omnibus: 12.4.3
+
 
 platforms:
   - name: ubuntu-14.04
@@ -24,24 +31,34 @@ suites:
       - recipe[kagent::install]
       - recipe[kzookeeper::install]
       - recipe[kkafka::install]
+      - recipe[hadoop::install]
+      - recipe[flink::install]
+      - recipe[spark::install]
       - recipe[kzookeeper::default]
       - recipe[kkafka::default]
+#      - recipe[kkafka::monitor]
+      - recipe[hadoop::nn]
+      - recipe[hadoop::dn]
+      - recipe[hadoop::rm]
+      - recipe[hadoop::nm]
+      - recipe[hadoop::jhs]
+      - recipe[flink::jobmanager]
+      - recipe[flink::jobmanager-hadoop]
+      - recipe[flink::taskmanager]
+      - recipe[flink::wordcount]
+      - recipe[spark::master]
+      - recipe[spark::worker]
     attributes:
          kkafka:
             default:
                 private_ips: ["10.0.2.15"]
-                public_ips: ["10.0.2.15"]
             private_ips: ["10.0.2.15"]
-            public_ips: ["10.0.2.15"]
          kzookeeper:
             default:
                 private_ips: ["10.0.2.15"]
-                public_ips: ["10.0.2.15"]
             private_ips: ["10.0.2.15"]
-            public_ips: ["10.0.2.15"]
          kagent:
             private_ips: ["10.0.2.15"]
-            public_ips: ["10.0.2.15"]
          private_ips: ["10.0.2.15"]
          public_ips: ["10.0.2.15"]
          vagrant: "enabled"
@@ -51,4 +68,33 @@ suites:
               log_dirs: ['/mnt/kafka-logs-1', '/mnt/kafka-logs-2']
               zookeeper_connect: ['localhost:2181']
               zookeeper_connection_timeout_ms: 15_000
+         flink:
+            mode: streaming
+            jobmanager:
+               private_ips: ["10.0.2.15"]
+               web_port: 8089
+            taskmanager:
+               private_ips: ["10.0.2.15"]
+         spark:
+            master:
+               private_ips: ["10.0.2.15"]
+            worker:
+               private_ips: ["10.0.2.15"]
+         hdfs:
+            user: hdfs
+         hadoop:
+            group: hadoop
+            yarn:
+               user: yarn
+            nn:
+               private_ips: ["10.0.2.15"]
+            dn:
+               private_ips: ["10.0.2.15"]
+            rm:
+               private_ips: ["10.0.2.15"]
+               public_ips: ["10.0.2.15"]
+            nm:
+               private_ips: ["10.0.2.15"]
+            jhs:
+               private_ips: ["10.0.2.15"]
 

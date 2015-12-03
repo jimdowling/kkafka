@@ -8,8 +8,11 @@ metadata
 cookbook 'kafka', github: 'mthssdrbrg/kafka-cookbook', branch: 'master'
 cookbook 'kzookeeper', github: 'hopshadoop/kzookeeper', branch: 'master'
 cookbook 'zookeeper', github: 'biobankcloud/chef-zookeeper', branch: 'master'
+cookbook 'flink', github: 'hopshadoop/flink-chef', branch: 'master'
+cookbook 'spark', github: 'hopshadoop/spark-chef', branch: 'master'
+cookbook 'hadoop', github: 'hopshadoop/apache-hadoop-chef'
 
-cookbook 'java'
+cookbook 'java', github: 'agileorbit-cookbooks/java', tag: 'v1.29.0'
 
 #group :testing do
 #  cookbook 'apt'
