@@ -23,3 +23,6 @@ attribute "kafka/ulimit",
 :description => "ULimit for the max number of open files allowed",
 :type => 'string'
 
+attribute "kafka/version",
+:description => "Version of kafka used",
+:type => 'string'
