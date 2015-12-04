@@ -7,9 +7,10 @@ driver:
     natdnshostresolver1: "on"
     natdnsproxy1: "on"
   network:
-  - ["forwarded_port", {guest: 8080, host: 9191}]
+  #- ["forwarded_port", {guest: 8080, host: 9991}]
+  - ["forwarded_port", {guest: 9191, host: 9192}]
   - ["forwarded_port", {guest: 8888, host: 8888}]
-  - ["forwarded_port", {guest: 8088, host: 8088}]
+  - ["forwarded_port", {guest: 8088, host: 10088}]
   - ["forwarded_port", {guest: 8089, host: 8089}]
 
 provisioner:
@@ -36,7 +37,6 @@ suites:
       - recipe[spark::install]
       - recipe[kzookeeper::default]
       - recipe[kkafka::default]
-#      - recipe[kkafka::monitor]
       - recipe[hadoop::nn]
       - recipe[hadoop::dn]
       - recipe[hadoop::rm]
@@ -48,6 +48,7 @@ suites:
       - recipe[flink::wordcount]
       - recipe[spark::master]
       - recipe[spark::worker]
+      - recipe[kkafka::monitor]
     attributes:
          kkafka:
             default:
@@ -83,6 +84,7 @@ suites:
          hdfs:
             user: hdfs
          hadoop:
+            version: 2.7.1
             group: hadoop
             yarn:
                user: yarn
