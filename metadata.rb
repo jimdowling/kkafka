@@ -22,6 +22,6 @@ attribute "kafka/ulimit",
 :description => "ULimit for the max number of open files allowed",
 :type => 'string'
 
-attribute "kafka/version",
-:description => "Version of kafka used",
+attribute "kkafka/offset_monitor/port",
+:description => "Port for Kafka monitor service",
 :type => 'string'
