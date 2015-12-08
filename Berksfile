@@ -12,7 +12,8 @@ cookbook 'flink', github: 'hopshadoop/flink-chef', branch: 'master'
 cookbook 'spark', github: 'hopshadoop/spark-chef', branch: 'master'
 cookbook 'hadoop', github: 'hopshadoop/apache-hadoop-chef'
 
-cookbook 'java', github: 'agileorbit-cookbooks/java', tag: 'v1.29.0'
+cookbook 'java', github: 'jimdowling/java'
+
 
 #group :testing do
 #  cookbook 'apt'
