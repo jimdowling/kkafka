@@ -12,14 +12,18 @@ port=node[:kkafka][:offset_monitor][:port]
     cd /srv/kafka-monitor
     nohup java -cp #{jars} \
      com.quantifind.kafka.offsetapp.OffsetGetterWeb \
-     --zk "#{zk_ips}" \
+     --zk "#{zk_ips}:2181" \
      --port #{port} \
      --refresh 10.seconds \
      --retain 2.days \
-     --pluginsArgs graphiteHost=#{graphite_ip},graphitePort=2003,graphitePrefix=stats.kafka.offset_monitor \
      & > /srv/kafka-monitor/monitor.log
   echo $! > monitor.pid   
   EOF
   end
   new_resource.updated_by_last_action(true)
+
+
+#     --pluginsArgs graphiteHost=#{graphite_ip},graphitePort=2003,graphitePrefix=stats.kafka.offset_monitor \
 end
+
+

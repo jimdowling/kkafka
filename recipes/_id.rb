@@ -1,4 +1,3 @@
-kafka_ip = private_recipe_ip("kkafka", "default")
 found_id=-1
 id=1
 my_ip = my_private_ip()
