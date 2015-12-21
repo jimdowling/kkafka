@@ -21,8 +21,8 @@ remote_file dest do
   action :create_if_missing
 end
 
-zk_ips = node[:kzookeeper][:default][:private_ips].join(",")
-
+#zk_ips = node[:kzookeeper][:default][:private_ips].join(",")
+zk_ips = private_recipe_ip("kkafka","default")
 kkafka_monitor "kafka-monitor" do
  jar_file File.basename(node[:kkafka][:offset_monitor][:url])
  zk_ips zk_ips
