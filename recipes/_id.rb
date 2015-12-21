@@ -11,9 +11,8 @@ for kafka in node[:kkafka][:default][:private_ips]
   id += 1
 end 
 Chef::Log.info "Found ID IS: #{found_id}"
-if found_id == -1
-  raise "Could not find matching IP address #{my_ip} in the list of kafka nodes: " + node[:kkafka][:default][:private_ips].join(",")
+if found_id != -1
+  node.override.kafka.broker.broker_id = found_id
+  node.override.kafka.broker.id = found_id
 end
 
-node.override.kafka.broker.broker_id = found_id
-node.override.kafka.broker.id = found_id

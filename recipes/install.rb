@@ -1,4 +1,4 @@
-include_recipe 'kkafka::_id'
+#include_recipe 'kkafka::_id'
 
 include_recipe "java"
 
