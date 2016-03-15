@@ -1,9 +1,9 @@
-name             'kkafka'
+name             "kkafka"
 maintainer       "kafka"
 maintainer_email "jdowling@kth.se"
 license          "Apache v2.0"
 description      'Installs/Configures/Runs kkafka'
-version          "0.1"
+version          "0.1.0"
 
 recipe            "kkafka::install", "Experiment setup for kkafka"
 recipe            "kkafka::default", "configFile=; Run experiment for Kafka"
