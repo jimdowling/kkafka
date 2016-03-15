@@ -8,11 +8,13 @@ version          "0.1.0"
 recipe            "kkafka::install", "Experiment setup for kkafka"
 recipe            "kkafka::default", "configFile=; Run experiment for Kafka"
 recipe            "kkafka::monitor", "Helper webapp to monitor performance of kafka"
+recipe            "kkafka::client", "Kafka client installation"
 
 depends "kagent"
 depends "kafka"
 depends "zookeeper"
 depends "kzookeeper"
+depends "java"
 
 %w{ ubuntu debian rhel centos }.each do |os|
   supports os
