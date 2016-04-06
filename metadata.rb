@@ -4,6 +4,8 @@ maintainer_email "jdowling@kth.se"
 license          "Apache v2.0"
 description      'Installs/Configures/Runs kkafka'
 version          "0.1.0"
+source_url       "https://github.com/hopshadoop/kkafka"
+
 
 recipe            "kkafka::install", "Experiment setup for kkafka"
 recipe            "kkafka::default", "configFile=; Run experiment for Kafka"
