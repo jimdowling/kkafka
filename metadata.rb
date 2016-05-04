@@ -11,8 +11,7 @@ recipe            "kkafka::monitor", "Helper webapp to monitor performance of ka
 recipe            "kkafka::client", "Kafka client installation"
 
 depends "kagent"
-depends "kafka"
-depends "zookeeper"
+#depends "kafka"
 depends "kzookeeper"
 depends "java"
 

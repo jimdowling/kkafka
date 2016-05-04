@@ -2,7 +2,7 @@
 driver:
   name: vagrant
   customize:
-    memory: 3000
+    memory: 4000
     ioapic: 'on'
     natdnshostresolver1: "on"
     natdnsproxy1: "on"
@@ -32,22 +32,14 @@ suites:
       - recipe[kagent::install]
       - recipe[kzookeeper::install]
       - recipe[kkafka::install]
-      - recipe[hadoop::install]
-      - recipe[flink::install]
-      - recipe[spark::install]
+      - recipe[apache_hadoop::install]
       - recipe[kzookeeper::default]
       - recipe[kkafka::default]
-      - recipe[hadoop::nn]
-      - recipe[hadoop::dn]
-      - recipe[hadoop::rm]
-      - recipe[hadoop::nm]
-      - recipe[hadoop::jhs]
-      - recipe[flink::jobmanager]
-      - recipe[flink::jobmanager-hadoop]
-      - recipe[flink::taskmanager]
-      - recipe[flink::wordcount]
-      - recipe[spark::master]
-      - recipe[spark::worker]
+      - recipe[apache_hadoop::nn]
+      - recipe[apache_hadoop::dn]
+      - recipe[apache_hadoop::rm]
+      - recipe[apache_hadoop::nm]
+      - recipe[apache_hadoop::jhs]
       - recipe[kkafka::monitor]
     attributes:
          kkafka:
@@ -76,16 +68,16 @@ suites:
                web_port: 8089
             taskmanager:
                private_ips: ["10.0.2.15"]
-         spark:
+         hadoop_spark:
             master:
                private_ips: ["10.0.2.15"]
             worker:
                private_ips: ["10.0.2.15"]
-         hdfs:
-            user: hdfs
-         hadoop:
+         apache_hadoop:
             version: 2.7.1
             group: hadoop
+            hdfs:
+               user: hdfs
             yarn:
                user: yarn
             nn:
