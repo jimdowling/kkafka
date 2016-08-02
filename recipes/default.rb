@@ -38,3 +38,5 @@ Chef::Log.info "Zookeeper: #{node.kafka.broker.zookeeper.connect}"
 include_recipe 'kafka::_defaults'
 include_recipe 'kafka::_configure'
 include_recipe 'kafka::_coordinate'
+
+
